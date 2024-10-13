@@ -1,0 +1,36 @@
+<style>
+    pintura-editor {
+      box-shadow: 0 0 0 1px #eee;
+    }
+  </style>
+  <!-- <button (click)="fetchImages()">Fetch Image</button>
+  <h2> Upload Images</h2>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Upload file example</label>
+          <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile">
+          <button (click)="this.upload()" type="button" class="btn btn-primary mt-3">Upload</button>
+        </div>
+      </div>
+    </div>
+   </div> -->
+
+  <h2>Annotate Image</h2>
+  
+
+
+  <div style="height: 70vh">
+    <pintura-editor
+      #editorRef
+      [options]="editorOptions"
+      [src]="src"
+      [imageCropAspectRatio]="cropAspectRatio"
+      (load)="handleLoad($event)"
+      (process)="handleProcess($event)"
+    ></pintura-editor>
+  </div>
+  
+  <p><img *ngIf="result" [src]="result" alt="" /></p>
+  

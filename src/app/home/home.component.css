@@ -1,0 +1,46 @@
+.card{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+}
+.card-image{
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 20px;
+}
+
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    position: absolute;
+    top: 20%;  /* Center vertically */
+    left: 50%;  /* Center horizontally */
+    transform: translate(-50%, -50%);  /* Offset to truly center */
+    color: white;
+    font-size: 4em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+p{
+ 
+    position: absolute;
+    top: 60%;  /* Center vertically */
+    left: 50%;  /* Center horizontally */
+    transform: translate(-80%, -70%);  /* Offset to truly center */
+    color: white;
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: 2px;  /* Adjust the space between letters */
+    word-spacing: 10px;   /* Adjust the space between words */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,67 @@
+<!-- <p>Hello world!!</p>
+<div class="card flex justify-content-center">
+    <p-toast />
+    <p-fileUpload 
+        name="image-upload" 
+        url="" 
+        (onUpload)="onUpload($event)" 
+        [multiple]="true" 
+        accept="image/*" >
+            <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">
+                        {{ file.name }} - {{ file.size }} bytes
+                    </li>
+                </ul>
+            </ng-template>
+    </p-fileUpload>
+</div> -->
+
+<h2>Single File Upload</h2>
+
+<input type="file" class="file-input" (change)="onChange($event)" #fileUpload />
+
+<div *ngIf="file">
+  <section class="file-info">
+    File details:
+    <ul>
+      <li>Name: {{file.name}}</li>
+      <li>Type: {{file.type}}</li>
+      <li>Size: {{file.size}} bytes</li>
+    </ul>
+  </section>
+
+  <button (click)="onUpload()">Upload the file</button>
+
+  <section [ngSwitch]="status">
+    <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
+    <p *ngSwitchCase="'success'">✅ Done!</p>
+    <p *ngSwitchCase="'fail'">❌ Error!</p>
+    <p *ngSwitchDefault>😶 Waiting to upload...</p>
+  </section>
+</div>
+
+
+<!-- <h2>Multiple File Upload</h2>
+
+<input type="file" class="file-input" multiple (change)="onChange($event)" />
+
+<div *ngIf="files.length" class="file-section">
+  <section *ngFor="let file of files">
+    File details:
+    <ul>
+      <li>Name: {{file.name}}</li>
+      <li>Type: {{file.type}}</li>
+      <li>Size: {{file.size}} bytes</li>
+    </ul>
+  </section>
+
+  <button (click)="onUpload()" class="upload-button">Upload the file</button>
+
+  <section [ngSwitch]="status">
+    <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
+    <p *ngSwitchCase="'success'">✅ Done!</p>
+    <p *ngSwitchCase="'fail'">❌ Error!</p>
+    <p *ngSwitchDefault>😶 Waiting to upload...</p>
+  </section>
+</div> -->

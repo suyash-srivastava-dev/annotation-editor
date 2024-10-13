@@ -1,0 +1,94 @@
+
+<div class="card flex justify-content-center" >
+    <img src="assets/5.jpg" height="700px">
+    <h1 class="overlay-text">Data factory for next GenAI</h1>
+    <p class="overlay-text">
+        An intuitive platform designed to streamline the process of image labeling.
+    </p>
+    <!-- <p-card header="Data factory for the next GenAI">
+        <p class="overlay-text">
+            an intuitive platform designed to streamline the process of image labeling, making it easier to train AI models. The website offers a user-friendly interface that allows users to upload, view, and annotate images with precision. Key features include customizable annotation tools such as bounding boxes, segmentation, and keypoints, which are essential for defining objects or areas of interest within images.
+        </p>
+    </p-card> -->
+</div>
+<p-divider />
+<!-- <div class="card flex justify-content-center">
+    <p-stepper>
+        <p-stepperPanel header="Header I">
+            <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                <div class="flex flex-column h-12rem">
+                    <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                        Content I
+                    </div>
+                </div>
+                <div class="flex pt-4 justify-content-end">
+                    <p-button 
+                        label="Next" 
+                        icon="pi pi-arrow-right" 
+                        iconPos="right" 
+                        (onClick)="nextCallback.emit()" />
+                </div>
+            </ng-template>
+        </p-stepperPanel>
+        <p-stepperPanel header="Header II">
+            <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
+                <div class="flex flex-column h-12rem">
+                    <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                        Content II
+                    </div>
+                </div>
+                <div class="flex pt-4 justify-content-between">
+                    <p-button 
+                        label="Back" 
+                        icon="pi pi-arrow-left" 
+                        (onClick)="prevCallback.emit()" />
+                    <p-button 
+                        label="Next" 
+                        icon="pi pi-arrow-right" 
+                        iconPos="right" 
+                        (onClick)="nextCallback.emit()" />
+                </div>
+            </ng-template>
+        </p-stepperPanel>
+        <p-stepperPanel header="Header III">
+            <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                <div class="flex flex-column h-12rem">
+                    <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                        Content III
+                    </div>
+                </div>
+                <div class="flex pt-4 justify-content-start">
+                    <p-button 
+                        label="Back" 
+                        icon="pi pi-arrow-left" 
+                        (onClick)="prevCallback.emit()" />
+                </div>
+            </ng-template>
+        </p-stepperPanel>
+    </p-stepper>
+</div> -->
+<div class="card">
+    <p-steps [model]="items" [readonly]="false" />
+
+    
+    
+</div>
+<div class="card-image">
+    <p-galleria 
+        [value]="images" 
+        [autoPlay]="true" 
+        [circular]="true" 
+        [showThumbnails]="false" 
+        [responsiveOptions]="responsiveOptions" 
+        [numVisible]="5" 
+        [containerStyle]="{ 'max-width': '900px' }"> 
+            <ng-template pTemplate="item" let-item>
+                <img [src]="item.itemImageSrc" style="width: 100%;" />
+            </ng-template>
+            <!-- <ng-template pTemplate="thumbnail" let-item>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="item.thumbnailImageSrc" />
+                </div>
+            </ng-template> -->
+    </p-galleria>
+</div>

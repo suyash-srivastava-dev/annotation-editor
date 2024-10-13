@@ -1,0 +1,113 @@
+
+<!-- Projects View -->
+
+<div *ngIf="projectsView && !createProj">
+    <br>
+    <div class="card flex justify-content-center">
+        <p-button label="Create New Project" (onClick)=toggleNewProject()/>
+    </div>
+    <br>
+    <br>
+
+<p-table [value]="dataSource" [tableStyle]="{ 'width': '80%','margin-left': '100px' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <!-- <th>Code</th> -->
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <!-- <td>{{ product.id }}</td> -->
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td><p-button label="Open" (onClick)=openProject(product.id,product.name)/></td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+<!-- Dataset View -->
+<div *ngIf="!projectsView && !createProj">
+    <br>
+    <h2> Project: {{projectName}}</h2>
+    <br>
+    <br>
+    <br>
+    <div class="card1 flex justify-content-center">
+        <span><p-button id="back" label="Back" (onClick)=ngOnInit()/></span>
+    <span><p-button id="img" label="Add Images" styleClass="custom-button" (onClick)=uploadCommand(projectId)/></span>
+    <span><p-button label="Download Annotations" (onClick)=annotationSet()/></span>
+    
+    </div>
+   
+    <br>
+    <p-table [value]="dataSourceDataset" [tableStyle]="{ 'width': '80%','margin-left': '100px' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Dataset Image</th>
+                <th>Annotated Image</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td><img src={{product.dataset_img_url}} height="200px"></td>
+                <td><img src={{product.annotation_img_url}} height="200px"></td>
+                <td>{{ product.description }}</td>
+                <td><p-button label="Open" (onClick)="annotateImage(product.dataset_img_url,product.id)"/></td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+
+    <!--Create new project  -->
+<div *ngIf="createProj">
+    
+<!-- <div class="card flex justify-content-center">
+    <form [formGroup]="projectForm" (ngSubmit)="createNewProject()">
+       
+  <label for="name">Project Name: </label>
+  <input id="name" type="text" formControlName="name">
+  <label for="desc">Description: </label>
+  <input id="desc" type="text" formControlName="desc">
+
+</form>
+<div class="card flex justify-content-center">
+    <p-button label="Create Project" (onClick)=createNewProject()/>
+</div>
+</div>
+</div> -->
+<!-- <p-button (onClick)="showDialog()" label="Show" /> -->
+    <p-dialog header="Edit Profile" [modal]="true" [(visible)]="createProj" [style]="{ width: '25rem' }">
+        <!-- <span class="p-text-secondary block mb-5">Update your information.</span>
+        <div class="flex align-items-center gap-3 mb-3">
+            <label for="username" class="font-semibold w-6rem">Username</label>
+            <input pInputText id="username" class="flex-auto" autocomplete="off" />
+        </div>
+        <div class="flex align-items-center gap-3 mb-5">
+            <label for="email" class="font-semibold w-6rem">Email</label>
+            <input pInputText id="email" class="flex-auto" autocomplete="off" />
+        </div>
+        <div class="flex justify-content-end gap-2">
+            <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
+            <p-button label="Save" (onClick)="visible = false" />
+        </div> -->
+        <form [formGroup]="projectForm" (ngSubmit)="createNewProject()">
+       
+            <label for="name" class="font-semibold w-6rem" >Project Name: </label>
+            <input id="name" type="text" formControlName="name">
+            <br>
+            <br>
+            <label for="desc">Description: </label>
+            <input id="desc" type="text" formControlName="desc">
+          
+          </form>
+          <br>
+            <br>
+              <p-button label="Create Project" (onClick)=createNewProject()/>
+
+    </p-dialog>
+</div>
